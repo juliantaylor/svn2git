@@ -239,6 +239,10 @@ module Svn2Git
           ret << line
         end
       end
+      if $?.exitstatus != 0
+        puts "Command failed: #{cmd}"
+        exit $?.exitstatus
+      end
       
       ret
     end
